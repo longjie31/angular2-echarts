@@ -1,0 +1,52 @@
+<div [hidden]="submitted">
+  <h2>英雄表单（模板驱动表单）</h2>
+  <form class="layui-form" #heroForm="ngForm" (ngSubmit)="saveForm()">
+    {{diagnostic}}
+    <div class="layui-form-item">
+      <div class="layui-inline">
+        <label for="name" class="layui-form-label">姓名：</label>
+        <div class="layui-input-inline">
+          <input type="text" class="layui-input" id="name" name="name"
+                 required [(ngModel)]="model.name" #name="ngModel">
+          <div [hidden]="name.valid||name.pristine" class="alert alert-danger">
+            姓名是必须的
+          </div>
+          <br>#name模板变量上的class:{{name.className}}
+        </div>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-inline">
+        <label for="alterEgo" class="layui-form-label">第二性格：</label>
+        <div class="layui-input-inline">
+          <input type="text" class="layui-input" id="alterEgo"
+                 name="alterEgo" [(ngModel)]="model.alterEgo">
+        </div>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label for="power" class="layui-form-label">超能力：</label>
+      <div class="layui-input-inline">
+        <select name="power" id="power" required [(ngModel)]="model.power">
+          <option *ngFor="let item of powers" [value]="item" [selected]="item==model.power">{{item}}</option>
+        </select>
+      </div>
+    </div>
+    <button type="button" class="layui-btn layui-btn-warm"
+            (click)="newHero();heroForm.reset()">新增</button>
+    <button type="submit" [disabled]="!heroForm.form.valid" class="layui-btn layui-btn-normal">提交</button>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <h2>刚提交的表单</h2>
+  <div>
+    姓名：{{model.name}}
+  </div>
+  <div>
+    第二人格：{{model.alterEgo}}
+  </div>
+  <div>
+    超能力：{{model.power}}
+  </div>
+  <button type="button" class="layui-btn" (click)="submitted=false">返回</button>
+</div>

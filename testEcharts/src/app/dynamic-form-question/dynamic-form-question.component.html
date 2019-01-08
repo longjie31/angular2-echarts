@@ -1,0 +1,16 @@
+<div [formGroup]="form">
+  <label [attr.for]="question.key" class="layui-form-label">{{question.label}}</label>
+  <div [ngSwitch]="question.controlType">
+    <input [type]="question.type" *ngSwitchCase="'textbox'"
+           [formControlName]="question.key" [id]="question.key" class="layui-input-inline">
+    <select [id]="question.key" *ngSwitchCase="'dropdown'"
+            [formControlName]="question.key" class="layui-input-inline">
+      <option *ngFor="let opt of question.options" [value]="opt.key">
+        {{opt.value}}
+      </option>
+    </select>
+  </div>
+  <div class="errorMessage" *ngIf="!isValid">
+    {{question.label}} 是必填的
+  </div>
+</div>

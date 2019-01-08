@@ -1,0 +1,29 @@
+<div class="layui-tab">
+  <ul class="layui-tab-title">
+    <li class="layui-this">表单</li>
+    <li>可观察对象</li>
+  </ul>
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">
+      <div class="layui-row">
+        <div class="layui-col-md4 layui-col-md-offset2">
+          <h2>响应式表单</h2>
+          喜欢的颜色： <input type="text" [formControl]="favoriteColorControl">
+          <app-reactive-form></app-reactive-form>
+          <app-profile-editor></app-profile-editor>
+          <h2>动态表单</h2>
+          <app-dynamic-form [questions]="questions"></app-dynamic-form>
+        </div>
+        <div class="layui-col-md4 layui-col-md-offset2">
+          <h2>模板驱动表单</h2>
+          喜欢的颜色：<input type="text" [(ngModel)]="favoriteColor">
+          <app-hero-form></app-hero-form>
+        </div>
+      </div>
+    </div>
+    <div class="layui-tab-item">
+      <app-observable></app-observable>
+    </div>
+  </div>
+</div>
+

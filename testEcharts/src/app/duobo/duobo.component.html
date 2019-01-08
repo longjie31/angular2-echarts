@@ -1,0 +1,20 @@
+<form class="layui-form">
+  <div class="layui-form-item">
+    <label for="myInput">根据事件创建可观察对象</label>
+    <input type="text" class="layui-input-inline" id="myInput" name="myInput">
+  </div>
+  <div>
+    <button class="layui-btn" (click)="showConfig()">http获取数据</button>
+    <hr>
+    <h3>得到的数据</h3>
+    <div>
+      得到的url：{{config?.heroesUrl}}
+      得到的textfile：{{config?.textfile}}
+      传输是否完成：{{httpFinish}}
+    </div>
+    <button class="layui-btn" (click)="showConfigResponse()">得到完整响应体</button>
+    <div>
+      <p>完整的响应体：{{completeRes}}</p>
+    </div>
+  </div>
+</form>

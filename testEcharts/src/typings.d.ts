@@ -1,0 +1,1 @@
+declare const layui: any;

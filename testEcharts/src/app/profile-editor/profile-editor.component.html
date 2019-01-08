@@ -1,0 +1,66 @@
+<h2>响应式表单FormGroup实例</h2>
+<form [formGroup]="profileForm" (ngSubmit)="saveForm()">
+  <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label" for="firstName">姓：</label>
+      <div class="layui-input-inline">
+        <input type="text" class="layui-input" id="firstName" formControlName="firstName">
+      </div>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-inline">
+    <label class="layui-form-label" for="lastName">名：</label>
+    <div class="layui-input-inline">
+      <input type="text" class="layui-input" id="lastName" formControlName="lastName" required>
+    </div>
+    </div>
+  </div>
+  <div formGroupName="address">
+    <h3>地址表单（内嵌表单）</h3>
+    <div class="layui-form-item">
+      <div class="layui-inline">
+        <label class="layui-form-label" for="street">街道:</label>
+        <div class="layui-input-inline">
+          <input type="text" class="layui-input" id="street" formControlName="street">
+        </div>
+      </div>
+
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-inline">
+      <label class="layui-form-label" for="city">市:</label>
+      <div class="layui-input-inline">
+        <input type="text" class="layui-input" id="city" formControlName="city">
+      </div>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-inline">
+        <label class="layui-form-label" for="state">省:</label>
+        <div class="layui-input-inline">
+          <input type="text" class="layui-input" id="state" formControlName="state">
+        </div>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-inline">
+        <label class="layui-form-label" for="zip">邮政编码:</label>
+        <div class="layui-input-inline">
+          <input type="text" class="layui-input" id="zip" formControlName="zip">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div formArrayName="aliases">
+    <h3>aliases表单</h3>
+    <button type="button" class="layui-btn layui-btn-primary" (click)="addAliases()">添加aliases</button>
+    <div *ngFor="let item of aliases.controls;let i=index" class="layui-form-item">
+      <label [for]="'aliases'+i" class="layui-form-label">Alias</label>
+      <input type="text" [formControlName]="i" class="layui-input" [name]="'aliases'+i">
+    </div>
+  </div>
+  <p>表单状态：{{profileForm.status}}</p>
+  <button type="button" class="layui-btn layui-btn-warm" (click)="updateProfile()">设置局部特定值</button>
+  <button type="submit" class="layui-btn layui-btn-warm" [disabled]="!profileForm.valid">提交</button>
+</form>

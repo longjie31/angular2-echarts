@@ -1,0 +1,13 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="layui-form">
+    <div *ngFor="let question of questions" class="row">
+      <app-question [question]="question" [form]="form"></app-question>
+    </div>
+    <div class="layui-form-item">
+      <button type="submit" [disabled]="!form.valid" class="layui-btn layui-btn-danger">保存</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="payLoad">
+  <strong>保存以下值</strong><br>{{payLoad}}
+</div>

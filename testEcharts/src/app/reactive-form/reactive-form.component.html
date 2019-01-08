@@ -1,0 +1,9 @@
+<h2>响应式表单（快速起步）</h2>
+<label for="name">账户：
+  <input type="text" [formControl]="name" name="name" id="name">
+</label>
+<p>通过value获得当前值的快照：{{name.value}}</p>
+<button type="button" class="layui-btn layui-btn-primary"
+        (click)='updateName()'>
+  更新input值
+</button>

@@ -1,0 +1,4 @@
+<input type="text" class="layui-input" #search
+       placeholder="搜索框" (keydown.enter)="onSearch(search.value)">
+<ng2-smart-table [settings]="settings" [source]="localSource"></ng2-smart-table>
+<ng2-smart-table [settings]="settingsOne" [source]="dataOne"></ng2-smart-table>

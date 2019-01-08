@@ -1,0 +1,84 @@
+<div class="layui-row">
+  <div echarts [options]="chartOption" class="layui-col-md4 pie">
+
+  </div>
+  <div echarts [options]="chartOption1" class="layui-col-md4 pie">
+
+  </div>
+  <div echarts [options]="chartOption2" class="layui-col-md4 pie">
+
+  </div>
+  <div echarts [options]="chartOption3" class="layui-col-md6 pie">
+
+  </div>
+  <div echarts [options]="chartOption4" class="layui-col-md6 pie">
+
+  </div>
+</div>
+<button class="layui-btn">layui按钮</button>
+<p>The hero's birthday is {{ birthday | date:format }}</p>
+<button (click)="toggleFormat()">Toggle Format</button>
+<div class="layui-row">
+  <div class="layui-col-md2">
+    <h2>自定义管道</h2>
+    <div>
+      底数：<input type="text" [(ngModel)]="power">
+    </div>
+    <div>
+      指数：<input type="text" [(ngModel)]="factor">
+    </div>
+    计算结果：{{power | ljPipe:factor}}
+  </div>
+  <div class="layui-col-md2">
+    <h2>区分attribute和property</h2>
+    <button class="layui-btn" disabled='false' (click)="test1()">看看是否禁用</button>
+  </div>
+  <div class="layui-col-md2">
+    <h2>测试ngClass</h2>
+    <div [ngClass]="currentClass">ngClass</div>
+  </div>
+  <div class="layui-col-md2">
+    <h2>测试ngStyle</h2>
+    <div [ngStyle]="currentStyle">ngStyle</div>
+  </div>
+  <div class="layui-col-md2">
+    <h2>测试模板变量</h2>
+    <input type="text" ref-number>
+    <button class="layui-btn-primary" (click)="co(number.value)">打印模板变量</button>
+    <span>the hero is marker is {{$any(this.member)}}</span>
+  </div>
+  <div class="layui-col-md2">
+    <h2>测试$event</h2>
+    <input type="text" (keyup.enter)="testEvent(name.value)" #name>
+    <p>{{eventMessage}}</p>
+  </div>
+  <div class="layui-col-md2">
+    <h2>测试自定义指令</h2>
+   <!-- <p appHighlight highlightColor="yellow">在这里变黄色{{eventMessage}}</p>
+    <p appHighlight [highlightColor]="'red'">在这里变红色</p>
+    <p appHighlight [highlightColor]="color">组件属性定义的颜色</p>-->
+    <p [appHighlight] = 'color'>给指令传值，指令属性为绿色</p>
+    <p [appHighlight]>给指令传值，故意没传值</p>
+  </div>
+  <div class="layui-col-md2">
+    <h2>测试自定义指令（自写）</h2>
+    <input type="radio" name="choiseColor" (click)="choiseColor='yellow'">黄色
+    <input type="radio" name="choiseColor" (click)="choiseColor='red'">红色
+    <input type="radio" name="choiseColor" (click)="choiseColor='cyan'">青色
+    <p [appHighlight]="choiseColor">测试颜色</p>
+    <p [appHighlight]="choiseColor" defaultColor="violet">更改默认颜色</p>
+  </div>
+  <div class="layui-col-md2">
+    <h2>测试ng-template指令</h2>
+    <p>破军</p>
+    <ng-template>
+      <p>圣诞节</p>
+    </ng-template>
+    <p>快乐</p>
+  </div>
+  <div class="layui-col-md2">
+    <h2>自定义结构型指令</h2>
+    <p *appUnlessDirective="condition">自定义结构型指令接到为true时</p>
+    <p *appUnlessDirective="!condition">自定义结构型指令接到为false时</p>
+  </div>
+</div>
