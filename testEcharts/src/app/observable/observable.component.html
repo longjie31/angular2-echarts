@@ -11,4 +11,13 @@
   <h2>测试异步管道</h2>
   时间:{{time|async}}
 </div>
+<div>
+  angular-动画
+  <div>
+    <button type="button" (click)="toggle()" class="layui-btn">更换动画</button>
+    <div [@openClose]="isOpen?'open':'closed'">
+      <p>当前的动画为：{{isOpen?'Open动画':'Closed动画'}}</p>
+    </div>
+  </div>
+</div>
 <app-customer-dashboard></app-customer-dashboard>

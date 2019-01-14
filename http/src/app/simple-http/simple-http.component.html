@@ -1,0 +1,7 @@
+<h2>基本的请求</h2>
+<div>
+  <button type="button" (click)="makeRequest()">发送请求</button>
+  <div *ngIf="loading">loading...</div>
+  <pre>data:{{data}}</pre>
+  <pre>data|json:{{data|json}}</pre>
+</div>

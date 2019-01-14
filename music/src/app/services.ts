@@ -1,6 +1,7 @@
 import {Http} from "@angular/http";
-
-class SpotifyService{
+import {Injectable} from "@angular/core";
+@Injectable()
+export class SpotifyService{
   constructor(public http:Http){}
   searchByTrack(query: string) {
     let params: string = [

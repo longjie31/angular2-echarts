@@ -1,14 +1,32 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable, of} from 'rxjs';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-observable',
   templateUrl: './observable.component.html',
-  styleUrls: ['./observable.component.scss']
+  styleUrls: ['./observable.component.scss'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({height: '200px', opacity: 1, backgroundColor: 'yellow'})),
+      state('closed', style({height: '100px', width: '200px', opacity: 0.5, backgroundColor: 'green'})),
+      transition('open => closed', [
+        animate('1s 0.5s ease-out')
+      ]),
+      transition('closed => open', [
+        animate('0.5s ease-in')
+      ]),
+    ]),
+  ]
 })
 export class ObservableComponent implements OnInit {
+  isOpen = true;
 
   constructor() {
+  }
+
+  toggle() {
+    this.isOpen = !this.isOpen;
   }
 
   ngOnInit() {

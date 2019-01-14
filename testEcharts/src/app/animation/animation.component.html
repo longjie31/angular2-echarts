@@ -1,0 +1,16 @@
+<div>
+  angular-动画
+  <div>
+    <button type="button" (click)="toggle()" class="layui-btn">更换动画</button>
+    <div [@openOrClose]="isOpen?'open':'closed'">
+      <p>当前的动画为：{{isOpen?'Open动画':'Closed动画'}}</p>
+    </div>
+  </div>
+  <div>
+    <h1>使用:enter和:leave</h1>
+    <button type="button" (click)="changeFunc()" class="layui-btn-primary">{{isChange?'删除':'添加'}}元素动画</button>
+    <div @flyInOut *ngIf="isChange" (@flyInOut.done)="onAnimationEvent($event)">
+      <p>ngIf飞进或者飞出</p>
+    </div>
+  </div>
+</div>

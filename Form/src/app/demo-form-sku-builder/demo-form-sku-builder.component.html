@@ -1,0 +1,36 @@
+<h2>
+  sku的例子，用builder
+</h2>
+<form [formGroup]="myForm" (onSubmit)="onSubmit(myForm.value)">
+  <label for="skuInput">SKU：</label>
+  <input type="text" id="skuInput" placeholder="SKU"
+         [formControl]="myForm.controls['sku']">
+  <label for="productNameInput">产品名称</label>
+  <input type="text" id="productNameInput" placeholder="产品名称"
+  [formControl]="myForm.get('productName')" [(ngModel)]="productName">
+  <div>
+    产品名称是：{{productName}}
+  </div>
+  <button type="submit">提交表单</button>
+</form>
+<div *ngIf="sku.hasError('invalidSku')">
+  SKU 必须以123开始
+</div>
+<div *ngIf="!sku.valid">
+  SKU 不是有效值
+</div>
+<div *ngIf="!myForm.controls['sku'].valid">
+  SKU 不是有效值
+</div>
+<div *ngIf="sku.hasError('required')">
+  SKU 是必填项
+</div>
+<div *ngIf="myForm.controls['sku'].hasError('required')">
+  SKU 是必填项
+</div>
+<div *ngIf="myForm.hasError('required',['sku'])">
+  SKU 是必填项呢
+</div>
+<div *ngIf="!sku.valid && sku.touched" [class.error]="!sku.valid&&sku.touched">
+  SKU 不是有效的哦
+</div>
