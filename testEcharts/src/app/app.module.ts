@@ -26,6 +26,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './user.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AnimationComponent } from './animation/animation.component';
+import { ZtreeComponent } from './ztree/ztree.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AnimationComponent } from './animation/animation.component';
     ObservableComponent,
     DuoboComponent,
     AnimationComponent,
+    ZtreeComponent,
   ],
   imports: [
     BrowserModule,

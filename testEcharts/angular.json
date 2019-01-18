@@ -28,10 +28,13 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/layui/css/layui.css"
+              "src/assets/layui/css/layui.css",
+              "src/assets/zTree/css/zTreeStyle/zTreeStyle.css"
             ],
             "scripts": [
-              "src/assets/layui/layui.all.js"
+              "src/assets/layui/layui.all.js",
+              "src/assets/zTree/js/jquery-1.4.4.min.js",
+              "src/assets/zTree/js/jquery.ztree.all.js"
             ]
           },
           "configurations": {
