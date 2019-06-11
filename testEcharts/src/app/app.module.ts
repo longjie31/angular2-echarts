@@ -25,48 +25,48 @@ import {CustomerDashboardModule} from './customer-dashboard/customer-dashboard.m
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './user.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { AnimationComponent } from './animation/animation.component';
-import { ZtreeComponent } from './ztree/ztree.component';
-import { HistogramComponent } from './histogram/histogram.component';
+import {AnimationComponent} from './animation/animation.component';
+import {ZtreeComponent} from './ztree/ztree.component';
+import {HistogramComponent} from './histogram/histogram.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PieComponent,
-    HmoeComponent,
-    ExponentialStrength,
-    HighlightDirective,
-    SmartTabComponent,
-    UnlessDirectiveDirective,
-    LineComponent,
-    FormComponent,
-    ReactiveFormComponent,
-    ProfileEditorComponent,
-    HeroFormComponent,
-    DynamicFormComponent,
-    DynamicFormQuestionComponent,
-    ObservableComponent,
-    DuoboComponent,
-    AnimationComponent,
-    ZtreeComponent,
-    HistogramComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgxEchartsModule,
-    // RouterModule.forRoot(routers, {enableTracing: true}),
-    FormsModule,
-    Ng2SmartTableModule,
-    ReactiveFormsModule,
-    CustomerDashboardModule,
-    HttpClientModule,
-    BrowserAnimationsModule
-  ],
-  providers: [
-    UserService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PieComponent,
+        HmoeComponent,
+        ExponentialStrength,
+        HighlightDirective,
+        SmartTabComponent,
+        UnlessDirectiveDirective,
+        LineComponent,
+        FormComponent,
+        ReactiveFormComponent,
+        ProfileEditorComponent,
+        HeroFormComponent,
+        DynamicFormComponent,
+        DynamicFormQuestionComponent,
+        ObservableComponent,
+        DuoboComponent,
+        AnimationComponent,
+        ZtreeComponent,
+        HistogramComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgxEchartsModule,
+        // RouterModule.forRoot(routers, {enableTracing: true}),
+        FormsModule,
+        Ng2SmartTableModule,
+        ReactiveFormsModule,
+        CustomerDashboardModule,
+        HttpClientModule,
+        BrowserAnimationsModule
+    ],
+    providers: [
+        UserService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
