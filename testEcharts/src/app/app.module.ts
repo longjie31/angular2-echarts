@@ -27,6 +27,7 @@ import {UserService} from './user.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AnimationComponent } from './animation/animation.component';
 import { ZtreeComponent } from './ztree/ztree.component';
+import { HistogramComponent } from './histogram/histogram.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ZtreeComponent } from './ztree/ztree.component';
     DuoboComponent,
     AnimationComponent,
     ZtreeComponent,
+    HistogramComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,9 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/assets/layui/css/layui.css",
-              "src/assets/zTree/css/zTreeStyle/zTreeStyle.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "src/assets/layui/layui.all.js",
