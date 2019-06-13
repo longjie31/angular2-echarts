@@ -1,0 +1,28 @@
+<div class="layui-card">
+    <div class="layui-card-header">错误处理</div>
+    <div class="layui-card-body">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">输入框</label>
+                <div class="layui-input-block">
+                    <input [(ngModel)]='test1' type="text" name="title" required lay-verify="required"
+                           placeholder="请输入标题" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </form>
+        <button class="layui-btn layui-btn-normal" (click)="testOne()">提交</button>
+        <span *ngIf="message1!==null">{{message1}}</span>
+    </div>
+    <div class="layui-card-header">window对象</div>
+    <div class="layui-card-body">
+        <button class="layui-btn layui-btn-normal" (click)="openWindow()">打开窗口</button>
+        <button class="layui-btn layui-btn-normal" (click)="closeWindow()">关闭窗口</button>
+        <button class="layui-btn layui-btn-normal" (click)="isClosed()">检查窗口是否关闭</button>
+        <span>{{message2}}</span>
+        <div>localStorage对象</div>
+        <button class="layui-btn" (click)="localStorageClick()">点击</button>
+        <ng-container *ngIf="message3">
+            <span>点击了{{message3}}次</span>
+        </ng-container>
+    </div>
+</div>
