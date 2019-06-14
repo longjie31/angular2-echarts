@@ -7,9 +7,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class GreenHandComponent implements OnInit {
     test1 = null;
+    test2 = '';
     message1 = null;
     message2 = null;
     message3 = null;
+    message4 = null;
+    message5 = null;
+    message6 = null;
+    message7 = null;
+    message8 = null;
+    setTime1;
     myWindow;
 
     constructor() {
@@ -78,5 +85,63 @@ export class GreenHandComponent implements OnInit {
             localStorage.setItem('clickCount', '1');
         }
         this.message3 = localStorage.clickCount;
+    }
+
+    // sessionStorage点击
+    sessionStorageClick() {
+        if (sessionStorage.getItem('sessionClick')) {
+            sessionStorage.setItem('sessionClick', (parseInt(sessionStorage.getItem('sessionClick'), 10) + 1).toString());
+            this.message4 = parseInt(sessionStorage.getItem('sessionClick'), 10);
+        } else {
+            sessionStorage.setItem('sessionClick', '1');
+            this.message4 = parseInt(sessionStorage.getItem('sessionClick'), 10);
+        }
+    }
+
+    sessionRemove() {
+        if (sessionStorage.getItem('sessionClick')) {
+            sessionStorage.removeItem('sessionClick');
+            this.message4 = parseInt(sessionStorage.getItem('sessionClick'), 10);
+        }
+    }
+
+    // 加密
+    myBtoa() {
+        this.message5 = btoa(this.test2);
+    }
+
+    // 解密
+    myAtob() {
+        this.message6 = atob(this.message5);
+    }
+
+    // 创建定时器
+    createSetInterval() {
+        const that = this;
+        this.setTime1 = setInterval(function () {
+            if (that.setTime1) {
+                that.message7 += 1;
+            } else {
+                that.message7 = 1;
+            }
+        }, 1000);
+    }
+
+    // 清除定时器
+    removeSetInterval() {
+        clearInterval(this.setTime1);
+        this.message7 = 0;
+    }
+
+    // 关闭浏览器
+    closeBrowser() {
+        // Window.close();
+    }
+
+    // 打开确认框
+    openConfirm() {
+        const x = confirm('按下按钮:');
+        this.message8 = x ? '按下了确定按钮' : '按下了取消按钮';
+
     }
 }
