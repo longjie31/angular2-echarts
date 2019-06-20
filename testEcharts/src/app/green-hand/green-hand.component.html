@@ -1,79 +1,138 @@
 <div class="layui-card layui-row">
-        <div class="layui-col-md4">
-            <div class="layui-card-header">错误处理</div>
-            <div class="layui-card-body">
-                <form class="layui-form" action="">
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">输入框</label>
-                        <div class="layui-input-block">
-                            <input [(ngModel)]='test1' type="text" name="title" required lay-verify="required"
-                                   placeholder="请输入标题" autocomplete="off" class="layui-input">
-                        </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">错误处理</div>
+        <div class="layui-card-body">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">输入框</label>
+                    <div class="layui-input-block">
+                        <input [(ngModel)]='test1' type="text" name="title" required lay-verify="required"
+                               placeholder="请输入标题" autocomplete="off" class="layui-input">
                     </div>
-                </form>
-                <button class="layui-btn layui-btn-normal" (click)="testOne()">提交</button>
-                <span *ngIf="message1!==null">{{message1}}</span>
+                </div>
+            </form>
+            <button class="layui-btn layui-btn-normal" (click)="testOne()">提交</button>
+            <span *ngIf="message1!==null">{{message1}}</span>
+        </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">window对象</div>
+        <div class="layui-card-body">
+            <button class="layui-btn layui-btn-normal" (click)="openWindow()">打开窗口</button>
+            <button class="layui-btn layui-btn-normal" (click)="closeWindow()">关闭窗口</button>
+            <button class="layui-btn layui-btn-normal" (click)="isClosed()">检查窗口是否关闭</button>
+            <span>{{message2}}</span>
+            <div>localStorage对象</div>
+            <button class="layui-btn" (click)="localStorageClick()">点击</button>
+            <ng-container *ngIf="message3">
+                <span>点击了{{message3}}次</span>
+            </ng-container>
+        </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">sessionStorage对象</div>
+        <div class="layui-card-body">
+            <button class="layui-btn layui-btn-normal" (click)="sessionStorageClick()">点击</button>
+            <button class="layui-btn layui-btn-danger" (click)="sessionRemove()">清除</button>
+            <span *ngIf="message4">点击{{message4}}次</span>
+        </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">
+            btoa和atob加解密
+        </div>
+        <div class="layui-card-body">
+            <input type="text" placeholder="请输入要加密的内容" autocomplete="off" class="layui-input" [(ngModel)]="test2">
+            <button (click)="myBtoa()" class="layui-btn layui-btn-normal">加密</button>
+            <span *ngIf="test2">加密后：{{message5}}</span>
+            <button (click)="myAtob()" class="layui-btn layui-btn-warm">解密</button>
+            <span *ngIf="test2">解密后：{{message6}}</span>
+        </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">
+            定时器和清除定时器
+        </div>
+        <div class="layui-card-body">
+            <button class="layui-btn layui-btn-normal" (click)="createSetInterval()">设置定时器</button>
+            <span *ngIf="message7">定时器启动了：{{message7}}</span>
+            <button class="layui-btn layui-btn-warm" (click)="removeSetInterval()">清除定时器</button>
+        </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">
+            close关闭浏览器
+        </div>
+        <div class="layui-card-body">
+            <button class="layui-btn layui-btn-normal" (click)="closeBrowser()">关闭浏览器</button>
+        </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">
+            confirm确认框
+        </div>
+        <div class="layui-card-body">
+            <button class="layui-btn layui-btn-normal" (click)="openConfirm()">打开确认框</button>
+            <span *ngIf="message8">{{message8}}</span>
+        </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">
+            screen对象
+        </div>
+        <div class="layui-card-body">
+            <button class="layui-btn layui-btn-normal" (click)="showAvailHeight()">屏幕高度</button>
+            <span *ngIf="message9">{{message9}}px</span>
+            <button class="layui-btn layui-btn-normal" (click)="showAvailWidth()">屏幕宽度</button>
+            <span *ngIf="message10">{{message10}}px</span>
+        </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">
+            history对象
+        </div>
+        <div class="layui-card-body">
+            <button class="layui-btn layui-btn-normal" (click)="showHistoryLength()">历史列表中URL的数量</button>
+            <span *ngIf="message11">{{message11}}</span>
+            <button class="layui-btn layui-btn-normal" (click)="goBack()">朝后一页</button>
+            <button class="layui-btn layui-btn-normal" (click)="goForward()">朝前一页</button>
+        </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">
+            location对象
+        </div>
+        <div class="layui-card-body">
+            <button class="layui-btn layui-btn-normal" (click)="showLocation()">location的属性和方法</button>
+            <div *ngIf="host">
+                <span>hash属性：</span>
+                <span>{{hash}}&nbsp;</span>
+                <span>host：</span>
+                <span>{{host}}</span>
+                <br>
+                <span>hostname：</span>
+                <span>{{hostname}}&nbsp;</span>
+                <span>href：</span>
+                <span>{{href}}</span>
+                <br>
+                <span>pathname：</span>
+                <span>{{pathname}}&nbsp;</span>
+                <span>port：</span>
+                <span>{{port}}</span>
+                <br>
+                <span>protocol：</span>
+                <span>{{protocol}}&nbsp;</span>
+                <span>search：</span>
+                <span>{{search}}</span>
             </div>
         </div>
-        <div class="layui-col-md4">
-            <div class="layui-card-header">window对象</div>
-            <div class="layui-card-body">
-                <button class="layui-btn layui-btn-normal" (click)="openWindow()">打开窗口</button>
-                <button class="layui-btn layui-btn-normal" (click)="closeWindow()">关闭窗口</button>
-                <button class="layui-btn layui-btn-normal" (click)="isClosed()">检查窗口是否关闭</button>
-                <span>{{message2}}</span>
-                <div>localStorage对象</div>
-                <button class="layui-btn" (click)="localStorageClick()">点击</button>
-                <ng-container *ngIf="message3">
-                    <span>点击了{{message3}}次</span>
-                </ng-container>
-            </div>
+    </div>
+    <div class="layui-col-md4">
+        <div class="layui-card-header">
+            document对象
         </div>
-        <div class="layui-col-md4">
-            <div class="layui-card-header">sessionStorage对象</div>
-            <div class="layui-card-body">
-                <button class="layui-btn layui-btn-normal" (click)="sessionStorageClick()">点击</button>
-                <button class="layui-btn layui-btn-danger" (click)="sessionRemove()">清除</button>
-                <span *ngIf="message4">点击{{message4}}次</span>
-            </div>
+        <div class="layui-card-body">
+            <button class="layui-btn layui-btn-normal" (click)="documentOpen()">打开文件输入流</button>
         </div>
-        <div class="layui-col-md4">
-            <div class="layui-card-header">
-               btoa和atob加解密
-            </div>
-            <div class="layui-card-body">
-                <input type="text" placeholder="请输入要加密的内容" autocomplete="off" class="layui-input" [(ngModel)]="test2">
-                <button (click)="myBtoa()" class="layui-btn layui-btn-normal">加密</button>
-                <span *ngIf="test2">加密后：{{message5}}</span>
-                <button (click)="myAtob()" class="layui-btn layui-btn-warm">解密</button>
-                <span *ngIf="test2">解密后：{{message6}}</span>
-            </div>
-        </div>
-        <div class="layui-col-md4">
-            <div class="layui-card-header">
-                定时器和清除定时器
-            </div>
-            <div class="layui-card-body">
-                <button class="layui-btn layui-btn-normal" (click)="createSetInterval()">设置定时器</button>
-                <span *ngIf="message7">定时器启动了：{{message7}}</span>
-                <button class="layui-btn layui-btn-warm" (click)="removeSetInterval()">清除定时器</button>
-            </div>
-        </div>
-        <div class="layui-col-md4">
-            <div class="layui-card-header">
-                close关闭浏览器
-            </div>
-            <div class="layui-card-body">
-                <button class="layui-btn layui-btn-normal" (click)="closeBrowser()">关闭浏览器</button>
-            </div>
-        </div>
-        <div class="layui-col-md4">
-            <div class="layui-card-header">
-                confirm确认框
-            </div>
-            <div class="layui-card-body">
-                <button class="layui-btn layui-btn-normal" (click)="openConfirm()">打开确认框</button>
-                <span *ngIf="message8">{{message8}}</span>
-            </div>
-        </div>
+    </div>
 </div>
