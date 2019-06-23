@@ -28,7 +28,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AnimationComponent} from './animation/animation.component';
 import {ZtreeComponent} from './ztree/ztree.component';
 import {HistogramComponent} from './histogram/histogram.component';
-import { GreenHandComponent } from './green-hand/green-hand.component';
+import {GreenHandComponent} from './green-hand/green-hand.component';
+import {TypeScriptComponent} from './type-script/type-script.component';
 
 @NgModule({
     declarations: [
@@ -52,6 +53,7 @@ import { GreenHandComponent } from './green-hand/green-hand.component';
         ZtreeComponent,
         HistogramComponent,
         GreenHandComponent,
+        TypeScriptComponent
     ],
     imports: [
         BrowserModule,

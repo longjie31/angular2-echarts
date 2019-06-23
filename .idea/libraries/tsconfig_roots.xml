@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="tsconfig$roots" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/testEcharts/node_modules/echarts-gl/dist/echarts-gl.min.js" />
+        <item url="file://$PROJECT_DIR$/testEcharts/node_modules/echarts/dist/echarts.min.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/testEcharts/node_modules/echarts-gl/dist/echarts-gl.min.js" />
+      <root url="file://$PROJECT_DIR$/testEcharts/node_modules/echarts/dist/echarts.min.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
