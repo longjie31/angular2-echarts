@@ -29,6 +29,7 @@ import {AnimationComponent} from './animation/animation.component';
 import {ZtreeComponent} from './ztree/ztree.component';
 import {HistogramComponent} from './histogram/histogram.component';
 import { GreenHandComponent } from './green-hand/green-hand.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
     declarations: [
@@ -52,6 +53,7 @@ import { GreenHandComponent } from './green-hand/green-hand.component';
         ZtreeComponent,
         HistogramComponent,
         GreenHandComponent,
+        RxjsComponent,
     ],
     imports: [
         BrowserModule,
