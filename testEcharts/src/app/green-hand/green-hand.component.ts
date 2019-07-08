@@ -16,6 +16,17 @@ export class GreenHandComponent implements OnInit {
     message6 = null;
     message7 = null;
     message8 = null;
+    message9 = null;
+    message10 = null;
+    message11 = null;
+    hash = null;
+    host = null;
+    hostname = null;
+    href = null;
+    pathname = null;
+    port = null;
+    protocol = null;
+    search = null;
     setTime1;
     myWindow;
 
@@ -142,6 +153,50 @@ export class GreenHandComponent implements OnInit {
     openConfirm() {
         const x = confirm('按下按钮:');
         this.message8 = x ? '按下了确定按钮' : '按下了取消按钮';
+    }
 
+    // 屏幕高度
+    showAvailHeight() {
+        this.message9 = screen.availHeight;
+    }
+
+    // 屏幕宽度
+    showAvailWidth() {
+        this.message10 = screen.availWidth;
+    }
+
+    // 历史url长度
+    showHistoryLength() {
+        this.message11 = history.length;
+    }
+
+    // 朝后一步
+    goBack() {
+        window.history.back();
+    }
+
+    // 朝前一页
+    goForward() {
+        window.history.forward();
+    }
+
+    // 展示location对象
+    showLocation() {
+        this.hash = location.hash;
+        this.host = location.host;
+        this.hostname = location.hostname;
+        this.href = location.href;
+        this.pathname = location.pathname;
+        this.port = location.port;
+        this.protocol = location.protocol;
+        this.search = location.search;
+        location.replace('https://www.runoob.com');
+    }
+
+    documentOpen() {
+        const doc = document.open('text/html', 'replace');
+        const txt = '<!DOCTYPE html><html><h1>文件流</h1></html>';
+        doc.write(txt);
+        doc.close();
     }
 }
