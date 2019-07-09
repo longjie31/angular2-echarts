@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {concat, from, fromEvent, interval, merge, Observable, of, throwError, timer} from 'rxjs';
 import {fromPromise} from 'rxjs-compat/observable/fromPromise';
-import {delay, first, skip, startWith, take, takeLast, takeUntil} from 'rxjs/operators';
+import {delay, first, skip, startWith, take, takeLast, takeUntil, throttleTime} from 'rxjs/operators';
 
 
 @Component({
@@ -147,6 +147,18 @@ export class RxjsComponent implements OnInit {
             error: error => {
                 console.error('throw Error');
                 console.error(error);
+            }
+        });
+        const myThrottleTime = interval(300).pipe(take(5), startWith('throttleTime开始了'), throttleTime(1000));
+        myThrottleTime.subscribe({
+            next: (value) => {
+                console.log(value);
+            },
+            complete: () => {
+                console.log('throttleTime输出完成');
+            },
+            error: (error) => {
+                console.error('Error:' + error);
             }
         });
         /* const myOf0 = interval(1000).pipe(take(2));
