@@ -1,0 +1,34 @@
+<div class="app-moment">
+    <nz-card nzTitle="moment学习">
+        <div nz-card-grid [ngStyle]="gridStyle">
+            当前时间moment():{{moment1}}
+        </div>
+        <div nz-card-grid [ngStyle]="gridStyle">
+            <p>moment6-23-1993：{{moment2}}</p>
+            <p>moment6/23/1993：{{moment3}}</p>
+        </div>
+        <div nz-card-grid [ngStyle]="gridStyle">
+            moment(moment(), 'YYYY-MM-DD HH'){{moment4}}
+        </div>
+        <div nz-card-grid [ngStyle]="gridStyle">
+            moment('6-23-1993', ['MM-DD-YYYY', 'YYYY-MM-DD']){{moment5}}
+        </div>
+        <div nz-card-grid [ngStyle]="gridStyle">
+            moment('2010-01-12', ['YYYY', moment.ISO_8601]){{moment6}}
+        </div>
+        <div nz-card-grid [ngStyle]="gridStyle">
+            <p>moment{{moment7}}</p>
+            <p>moment{{moment8}}</p>
+        </div>
+        <div nz-card-grid [ngStyle]="gridStyle">
+            <p>moment(1318781876406):{{day1}}</p>
+            <p>moment.unix(1318781876.721):{{day2}}</p>
+        </div>
+        <div nz-card-grid [ngStyle]="gridStyle">
+            moment(new Date()){{moment9}}
+        </div>
+        <div nz-card-grid [ngStyle]="gridStyle">
+            moment([2019, 6, 23, 15, 25, 50]){{moment10}}
+        </div>
+    </nz-card>
+</div>

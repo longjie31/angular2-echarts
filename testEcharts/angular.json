@@ -24,14 +24,21 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
+              "src/theme.less",
               "src/styles.scss"
             ],
             "scripts": [
               "src/assets/layui/layui.all.js",
               "src/assets/zTree/js/jquery-1.4.4.min.js",
+              "node_modules/moment/min/moment.min.js",
               "src/assets/zTree/js/jquery.ztree.all.js"
             ]
           },

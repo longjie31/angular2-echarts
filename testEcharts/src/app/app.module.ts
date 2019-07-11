@@ -30,6 +30,12 @@ import {ZtreeComponent} from './ztree/ztree.component';
 import {HistogramComponent} from './histogram/histogram.component';
 import { GreenHandComponent } from './green-hand/green-hand.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { MomentComponent } from './moment/moment.component';
+import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
+
+registerLocaleData(zh);
 
 @NgModule({
     declarations: [
@@ -54,6 +60,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         HistogramComponent,
         GreenHandComponent,
         RxjsComponent,
+        MomentComponent,
     ],
     imports: [
         BrowserModule,
@@ -65,10 +72,12 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         ReactiveFormsModule,
         CustomerDashboardModule,
         HttpClientModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        NgZorroAntdModule
     ],
     providers: [
-        UserService
+        UserService,
+        { provide: NZ_I18N, useValue: zh_CN }
     ],
     bootstrap: [AppComponent]
 })
