@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {NzMessageService} from 'ng-zorro-antd';
 
 @Component({
     selector: 'app-moment',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./moment.component.scss']
 })
 export class MomentComponent implements OnInit {
+    current = 0;
     moment1: any;
     moment2: any;
     moment3: any;
@@ -18,8 +20,21 @@ export class MomentComponent implements OnInit {
     moment10: any;
     day1: any;
     day2: any;
+    getTime = {
+        t1: null,
+        t2: null,
+        t3: null,
+        t4: null,
+        t5: null,
+        t6: null,
+        t7: null,
+        t8: null,
+        t9: null,
+        t10: null,
+        t11: null
+    };
 
-    constructor() {
+    constructor(private message: NzMessageService) {
     }
 
     ngOnInit() {
@@ -35,6 +50,26 @@ export class MomentComponent implements OnInit {
         this.day2 = moment.unix(1318781876.721);
         this.moment9 = moment(new Date());
         this.moment10 = moment([2019, 6, 23, 15, 25, 50]);
+        this.getTime.t1 = moment().startOf('day');
+        this.getTime.t2 = moment().startOf('week');
+        this.getTime.t3 = moment().startOf('isoWeek');
+        this.getTime.t4 = moment().startOf('month');
+        this.getTime.t5 = moment().endOf('day');
+        this.getTime.t6 = moment().endOf('week');
+        this.getTime.t7 = moment().endOf('isoWeek');
+        this.getTime.t8 = moment().endOf('month');
+        this.getTime.t9 = moment().daysInMonth();
     }
 
+    pre() {
+        this.current -= 1;
+    }
+
+    next() {
+        this.current += 1;
+    }
+
+    done() {
+        this.message.info('亲，已经是最后一页啦');
+    }
 }

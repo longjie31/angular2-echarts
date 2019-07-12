@@ -39,7 +39,8 @@
               "src/assets/layui/layui.all.js",
               "src/assets/zTree/js/jquery-1.4.4.min.js",
               "node_modules/moment/min/moment.min.js",
-              "src/assets/zTree/js/jquery.ztree.all.js"
+              "src/assets/zTree/js/jquery.ztree.all.js",
+              "src/assets/xuehua/js/winternetizer.js"
             ]
           },
           "configurations": {

@@ -1,3 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/layui/css/layui.css";
 @import "assets/zTree/css/zTreeStyle/zTreeStyle.css";
+@import "assets/xuehua/css/normalize.css";
+@import "assets/xuehua/css/default.css";
+body{
+  background-color: rgb(31, 34, 41);
+  color: white;
+}
