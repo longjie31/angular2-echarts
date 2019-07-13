@@ -1,0 +1,78 @@
+<div class="app-moment">
+    <nz-card [nzTitle]="extraTemplate" [nzBordered]="true">
+        <div class="steps-content" [ngSwitch]="current">
+            <div *ngSwitchCase="0">
+                <nz-divider nzText="获取时间"></nz-divider>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    <p>moment().startOf获取今天0时0分0秒{{getTime.t1}}</p>
+                    <p>moment().startOf('week')获取本周第一天（周日）0时0分0秒{{getTime.t2}}</p>
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    <p>moment().startOf('isoWeek')获取本周周一0时0分0秒{{getTime.t3}}</p>
+                    <p>moment().startOf('month')获取当前月第一天0时0分0秒{{getTime.t4}}</p>
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    <p>moment().endOf('day')获取今天23时59分59秒{{getTime.t5}}</p>
+                    <p>moment().endOf('week')获取本周最后一天（周六）23时59分59秒{{getTime.t6}}</p>
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    <p>moment().endOf('isoWeek')获取本周周日23时59分59秒{{getTime.t7}}</p>
+                    <p>moment().endOf('month')获取当前月最后一天23时59分59秒{{getTime.t8}}</p>
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    moment().daysInMonth()获取当月的总天数{{getTime.t9}}
+                </div>
+            </div>
+            <div *ngSwitchCase="1">
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    当前时间moment():{{moment1}}
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    <p>moment6-23-1993：{{moment2}}</p>
+                    <p>moment6/23/1993：{{moment3}}</p>
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    moment(moment(), 'YYYY-MM-DD HH'){{moment4}}
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    moment('6-23-1993', ['MM-DD-YYYY', 'YYYY-MM-DD']){{moment5}}
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    moment('2010-01-12', ['YYYY', moment.ISO_8601]){{moment6}}
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    <p>moment{{moment7}}</p>
+                    <p>moment{{moment8}}</p>
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    <p>moment(1318781876406):{{day1}}</p>
+                    <p>moment.unix(1318781876.721):{{day2}}</p>
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    moment(new Date()){{moment9}}
+                </div>
+                <div nz-card-grid [ngStyle]="gridStyle">
+                    moment([2019, 6, 23, 15, 25, 50]){{moment10}}
+                </div>
+            </div>
+        </div>
+        <div class="steps-action">
+            <button nz-button nzType="default" (click)="pre()" *ngIf="current > 0">
+                <span>前一页</span>
+            </button>
+            <button nz-button nzType="default" (click)="next()" *ngIf="current < 2">
+                <span>下一页</span>
+            </button>
+            <button nz-button nzType="primary" (click)="done()" *ngIf="current === 2">
+                <span>完成</span>
+            </button>
+        </div>
+    </nz-card>
+    <ng-template #extraTemplate>
+        <nz-steps [nzCurrent]="current">
+            <nz-step nzTitle="常用方法"></nz-step>
+            <nz-step nzTitle="解析"></nz-step>
+            <nz-step nzTitle="完成"></nz-step>
+        </nz-steps>
+    </ng-template>
+</div>

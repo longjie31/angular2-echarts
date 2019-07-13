@@ -1,51 +1,59 @@
-<div class="row">
-    <div class="layui-col-md1">
-        <ul>
-            <li>
-                <a [routerLink]="['home']" routerLinkActive="active">
-                    <button class="layui-btn">主页</button>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['pie']" routerLinkActive="active">
-                    <button class="layui-btn layui-btn-normal">饼图</button>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['line']" routerLinkActive="active">
-                    <button class="layui-btn layui-btn-warm">折线图</button>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['histogram']" routerLinkActive="active">
-                    <button class="layui-btn">柱状图</button>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['form']" routerLinkActive="active">
-                    <button class="layui-btn layui-btn-primary">angular</button>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['smartTab']" routerLinkActive="active">
-                    <button class="layui-btn layui-btn-danger">ng2-smart-table</button>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['zTree']" routerLinkActive="active">
-                    <button class="layui-btn">zTree</button>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['typeScriptStudy']" routerLinkActive="active">
-                    <button class="layui-btn layui-btn-primary">typeScript练习</button>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="layui-col-md11">
-        <router-outlet>
-        </router-outlet>
+<div class="app-root">
+    <div class="row">
+        <div class="layui-col-md1">
+            <ul>
+                <li>
+                    <a [routerLink]="['home']" routerLinkActive="active">
+                        <button class="layui-btn">主页</button>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['pie']" routerLinkActive="active">
+                        <button class="layui-btn layui-btn-normal">饼图</button>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['line']" routerLinkActive="active">
+                        <button class="layui-btn layui-btn-warm">折线图</button>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['histogram']" routerLinkActive="active">
+                        <button class="layui-btn">柱状图</button>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['form']" routerLinkActive="active">
+                        <button class="layui-btn layui-btn-primary">angular</button>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['smartTab']" routerLinkActive="active">
+                        <button class="layui-btn layui-btn-danger">ng2-smart-table</button>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['zTree']" routerLinkActive="active">
+                        <button class="layui-btn">zTree</button>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['rxjs']" routerLinkActive="active">
+                        <button class="layui-btn layui-btn-normal">rxjs学习</button>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['moment']" routerLinkActive="active">
+                        <button class="layui-btn layui-btn-warm">moment学习</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="layui-col-md11">
+            <router-outlet>
+            </router-outlet>
+        </div>
     </div>
 </div>
+
 

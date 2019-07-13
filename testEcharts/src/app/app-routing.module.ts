@@ -7,7 +7,8 @@ import {SmartTabComponent} from './smart-tab/smart-tab.component';
 import {FormComponent} from './form/form.component';
 import {ZtreeComponent} from './ztree/ztree.component';
 import {HistogramComponent} from './histogram/histogram.component';
-import {TypeScriptComponent} from "./type-script/type-script.component";
+import {RxjsComponent} from './rxjs/rxjs.component';
+import {MomentComponent} from './moment/moment.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,7 +19,8 @@ const routes: Routes = [
     {path: 'form', component: FormComponent},
     {path: 'zTree', component: ZtreeComponent},
     {path: 'histogram', component: HistogramComponent},
-    {path: 'typeScriptStudy', component: TypeScriptComponent}
+    {path: 'rxjs', component: RxjsComponent},
+    {path: 'moment', component: MomentComponent}
 ];
 
 @NgModule({

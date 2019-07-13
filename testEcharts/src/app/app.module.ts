@@ -28,8 +28,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AnimationComponent} from './animation/animation.component';
 import {ZtreeComponent} from './ztree/ztree.component';
 import {HistogramComponent} from './histogram/histogram.component';
-import {GreenHandComponent} from './green-hand/green-hand.component';
-import {TypeScriptComponent} from './type-script/type-script.component';
+import { GreenHandComponent } from './green-hand/green-hand.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { MomentComponent } from './moment/moment.component';
+import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
+
+registerLocaleData(zh);
 
 @NgModule({
     declarations: [
@@ -53,7 +59,8 @@ import {TypeScriptComponent} from './type-script/type-script.component';
         ZtreeComponent,
         HistogramComponent,
         GreenHandComponent,
-        TypeScriptComponent
+        RxjsComponent,
+        MomentComponent,
     ],
     imports: [
         BrowserModule,
@@ -65,10 +72,12 @@ import {TypeScriptComponent} from './type-script/type-script.component';
         ReactiveFormsModule,
         CustomerDashboardModule,
         HttpClientModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        NgZorroAntdModule
     ],
     providers: [
-        UserService
+        UserService,
+        { provide: NZ_I18N, useValue: zh_CN }
     ],
     bootstrap: [AppComponent]
 })
