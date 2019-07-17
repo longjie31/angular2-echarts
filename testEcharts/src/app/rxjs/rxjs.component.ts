@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {concat, from, fromEvent, interval, merge, Observable, of, throwError, timer} from 'rxjs';
 import {fromPromise} from 'rxjs-compat/observable/fromPromise';
-import {delay, first, skip, startWith, take, takeLast, takeUntil, throttleTime} from 'rxjs/operators';
+import {combineLatest, delay, first, skip, startWith, take, takeLast, takeUntil, throttleTime, zip} from 'rxjs/operators';
 
 
 @Component({
@@ -159,6 +159,41 @@ export class RxjsComponent implements OnInit {
             },
             error: (error) => {
                 console.error('Error:' + error);
+            }
+        });
+        const s1 = interval(1000).pipe(take(10));
+        const s2 = interval(3000).pipe(take(3));
+        const s3 = of(4, 5);
+        const myCombineLatest = s1.pipe(combineLatest(s2, (x, y) => {
+            console.log('myCombineLatest');
+            console.log(x, y);
+            return x + y;
+        }));
+        myCombineLatest.subscribe({
+            next: value => {
+                console.log(value);
+            },
+            error: err => {
+                console.log('Error:' + err);
+            },
+            complete: () => {
+                console.log('完成啦');
+            }
+        });
+        const myZip = s1.pipe(zip(s2, (x, y) => {
+            console.log('myZip');
+            console.log(x, y);
+            return x + y;
+        }));
+        myZip.subscribe({
+            next: value => {
+                console.log(value);
+            },
+            error: err => {
+                console.log('Error:' + err);
+            },
+            complete: () => {
+                console.log('完成啦');
             }
         });
         /* const myOf0 = interval(1000).pipe(take(2));
